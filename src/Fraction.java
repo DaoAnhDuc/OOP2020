@@ -22,16 +22,50 @@ public class Fraction {
         this.denominator = denominator;
     }
     public Fraction(){
-        
+
     }
     public Fraction reduce(){
         int x = bai1.gcd(this.numerator, this.denominator);
-        Fraction f = new Fraction();
-        f.setNumerator(this.numerator/x);
-        f.setDenominator(this.denominator/x);
-        return f;
+        this.setDenominator(this.getDenominator()/x);
+        this.setNumerator(this.getNumerator()/x);
+        return this;
     }
     public void print(){
         System.out.println(this.numerator+"/"+ this.denominator);
+    }
+    public  Fraction add(Fraction b){
+        Fraction res =  new Fraction();
+        res.setNumerator(this.getNumerator()*b.getDenominator()+ b.getNumerator()*this.getDenominator());
+        res.setDenominator(this.getDenominator()*b.getDenominator());
+        return res.reduce();
+    }
+    public Fraction subtract(Fraction b){
+        Fraction res =  new Fraction();
+        res.setNumerator(this.getNumerator()*b.getDenominator() - b.getNumerator()*this.getDenominator());
+        res.setDenominator(this.getDenominator()*b.getDenominator());
+        return res.reduce();
+    }public Fraction multiply(Fraction b){
+        Fraction res =  new Fraction();
+        res.setNumerator(this.getNumerator()* b.getNumerator());
+        res.setDenominator(this.getDenominator()*b.getDenominator());
+        return res.reduce();
+    }
+    public Fraction divide(Fraction b){
+        Fraction res =  new Fraction();
+        res.setNumerator(this.getNumerator()*b.getDenominator());
+        res.setDenominator(this.getDenominator()*b.getNumerator());
+        return res.reduce();
+    }
+    public boolean equals(Object a){
+        if(a instanceof Fraction){
+            Fraction x = this.subtract((Fraction) a);
+            if(x.getNumerator()==0){
+                return true;
+            }else{
+                return  false;
+            }
+        }else{
+            return  false;
+        }
     }
 }
