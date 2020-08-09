@@ -1,3 +1,5 @@
+package Tuan2;
+
 public class bai1 {
         public static int gcd(int a, int b){
             int gcd = 1;

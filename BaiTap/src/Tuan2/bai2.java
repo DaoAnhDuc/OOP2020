@@ -1,3 +1,5 @@
+package Tuan2;
+
 public class bai2 {
     public static void main(String[] args) {
         Fraction f = new Fraction(3,6);

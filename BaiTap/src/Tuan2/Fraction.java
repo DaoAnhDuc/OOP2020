@@ -1,3 +1,5 @@
+package Tuan2;
+
 public class Fraction {
     int numerator;
     int denominator;
